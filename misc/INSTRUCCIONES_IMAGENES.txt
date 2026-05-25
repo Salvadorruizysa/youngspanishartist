@@ -1,0 +1,47 @@
+INSTRUCCIONES PARA AGREGAR IMÁGENES AL SITIO WEB
+================================================
+
+UBICACIÓN DE LOS ARCHIVOS:
+Todas las imágenes deben guardarse en la carpeta:
+c:\Users\Salvador Ruiz YSA\Desktop\PAGINA WEB OFICIAL\
+
+IMÁGENES NECESARIAS:
+====================
+
+1. PROYECTO "SILLY 07 WALKING" (trabajo principal):
+   
+   Archivo: silly-07-walking.html
+   
+   Imágenes requeridas:
+   - exodus-poster.png (IMAGEN PRINCIPAL - será la portada)
+   - exodus-mockup-02.png (segunda imagen en la galería)
+   - exodus-mockup-03.png (tercera imagen)
+   - exodus-branding.png (cuarta imagen)
+
+2. PROYECTO "SOOT" (detalle del proyecto):
+   
+   Archivo: project-detail.html
+   
+   Imagen requerida:
+   - soot-poster.png (imagen principal que sale en work.html)
+
+CARACTERÍSTICAS TÉCNICAS:
+========================
+- Las imágenes se mostrarán manteniendo su relación de aspecto original
+- Se pueden cambiar los nombres de los archivos editando los nombres en el código HTML
+- El ancho máximo es 900px (ancho del canvas)
+- Las imágenes se adaptan responsivamente
+
+CÓMO CAMBIAR LOS NOMBRES:
+=========================
+Si tus imágenes tienen otros nombres, abre:
+1. work.html - busca "exodus-poster.png" y "soot-poster.png"
+2. silly-07-walking.html - busca todos los nombres de archivos
+3. Reemplaza con los nombres correctos de tus imágenes
+
+FORMATOS SOPORTADOS:
+====================
+- PNG
+- JPG / JPEG
+- GIF
+- WebP

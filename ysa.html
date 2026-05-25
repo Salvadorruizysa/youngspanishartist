@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SALVADORRUIZ — Young Spanish Artist</title>
+
+    <style>
+
+        @font-face {
+
+            font-family: "HK Grotesk";
+
+            src: url("fonts/hk-grotesk.medium-legacy.otf") format("opentype");
+
+            font-weight: 500;
+
+            font-style: normal;
+
+            font-display: swap;
+
+        }
+
+
+
+        :root {
+
+            --neon-green: #d4ff00;
+
+            --text-dark: #ffffff;
+
+            --border-color: #000000;
+
+            --link-blue: #0066ff;
+
+           
+
+            --main-font: 'lilex-regular.ttf', sans-serif;
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+           
+
+            font-family: var(--main-font);
+
+            -webkit-font-smoothing: antialiased;
+
+            -moz-osx-font-smoothing: grayscale;
+
+        }
+
+
+
+        body {
+            background-color: var(--neon-green);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-canvas {
+            background: rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 34px 28px;
+            width: min(100%, 640px);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .content-canvas:hover {
+            opacity: 0;
+        }
+
+        .hover-reveal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 2;
+            width: auto;
+            max-width: 60vw;
+            height: auto;
+        }
+
+        .content-canvas:hover ~ .hover-reveal {
+            opacity: 1;
+        }
+
+        .close-btn {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: "HK Grotesk", Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+        }
+
+
+
+
+        .page-header {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 24px;
+
+            margin-bottom: 32px;
+
+        }
+
+
+
+        .page-logo {
+
+            width: min(100%, 100%);
+
+            max-width: 380px;
+
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+
+        }
+
+
+
+        .nav-links {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 22px;
+
+            width: 100%;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+            padding-top: 18px;
+
+        }
+
+        .nav-links a,
+
+        .nav-links span {
+
+            font-family: "HK Grotesk", Arial, sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            color: var(--text-dark);
+
+            text-decoration: none;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .nav-links a:hover {
+
+            color: var(--link-blue);
+
+        }
+
+
+
+
+        a {
+
+            font-weight: 400;
+
+        }
+
+
+
+        .ysa-content {
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            max-width: 800px;
+
+        }
+
+
+
+        .ysa-video {
+
+            margin-top: 30px;
+
+        }
+
+        video {
+            display: block;
+        }
+
+
+
+        .ysa-video video {
+
+            width: 100%;
+
+            height: auto;
+
+        }
+
+        
+
+    </style>
+
+   
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Apfel+Grotezk:wght@400;700&display=swap" rel="stylesheet">
+
+   
+
+</head>
+
+<body>
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="assets/FONDOYSA/Collagefondo.webm" type="video/webm">
+        <source src="assets/FONDOYSA/COLLAGEFONDO.mp4" type="video/mp4">
+    </video>
+
+    <div class="content-canvas">
+
+       
+
+        <div class="page-header">
+
+            <img class="page-logo" src="assets/NOMBRE_PRINCIPAL_WEB/NOMBREYSA.png" alt="SALVADORRUIZ">
+
+            <div class="nav-links">
+
+                <a href="PAGINA_WEB.html">Home</a>
+
+                <a href="work.html">Work</a>
+
+                <a href="about.html">About</a>
+
+                <span>YSA</span>
+
+                <a href="contact.html">Contact</a>
+
+            
+
+            </div>
+
+        </div>
+
+
+
+        <div class="ysa-content">
+
+            <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 20px;">Young Spanish Artist Glitch Logo</h3>
+
+            <p>Young Spanish Artist (YSA) nace tras años de estudio y desarrollo con el objetivo de construir una marca de streetwear propia y con identidad. Nuestra propuesta se basa en una estética minimalista y una atención meticulosa al detalle, dirigida a quienes buscan prendas con carácter, manteniendo un perfil sobrio y lowkey. Apostamos por las siluetas, los cortes y la calidad antes que por el exceso gráfico.
+
+El 8 de septiembre de 2023 presentamos oficialmente la marca con el evento YSA Atelier: Black Market. Desde entonces, YSA ha evolucionado constantemente, enfocándose en mejorar la calidad de los blanks y elevando el nivel de producción y recursos en cada lanzamiento.
+
+Actualmente, la próxima colección cápsula se encuentra en pausa debido a limitaciones presupuestarias. Aun así, seguimos trabajando en el desarrollo de la marca y confiamos en lanzar esta nueva etapa en el momento adecuado.</p>
+
+
+
+            <div class="ysa-video">
+                <!-- El video de fondo se reproduce en el body; el contenedor negro queda encima -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <img class="hover-reveal" src="assets/NOMBRE_PRINCIPAL_WEB/hover_blanco.png" alt="">
+
+    <a class="close-btn" href="PAGINA_WEB.html">Close</a>
+
+</body>
+
+</html>

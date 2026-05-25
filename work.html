@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SALVADORRUIZ — </title>
+
+    <style>
+
+        @font-face {
+
+            font-family: "HK Grotesk";
+
+            src: url("fonts/hk-grotesk.medium-legacy.otf") format("opentype");
+
+            font-weight: 500;
+
+            font-style: normal;
+
+            font-display: swap;
+
+        }
+
+
+
+        :root {
+
+            --neon-green: #d4ff00;
+
+            --text-dark: #000000;
+
+            --main-font: 'Apfel Grotezk', sans-serif;
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: var(--main-font);
+
+            -webkit-font-smoothing: antialiased;
+
+            -moz-osx-font-smoothing: grayscale;
+
+        }
+
+
+
+        body {
+
+            background-color: var(--neon-green);
+
+            color: var(--text-dark);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            min-height: 100vh;
+
+            padding: 0;
+
+        }
+
+
+
+        .content-canvas {
+
+            background: white;
+
+            width: calc(100% - 80px);
+
+            max-width: 340px;
+
+            padding: 0 14px 80px;
+
+            overflow: hidden;
+
+            min-height: 100vh;
+
+        }
+
+
+
+        .close-btn {
+
+            position: fixed;
+
+            bottom: 32px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-family: "HK Grotesk", Arial, sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+            text-decoration: none;
+
+            color: rgba(0, 0, 0, 0.45);
+
+            transition: color 0.2s ease;
+
+            z-index: 10;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        .close-btn:hover {
+
+            color: #000000;
+
+        }
+
+
+
+        .work-title {
+
+            font-family: "HK Grotesk", Arial, sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            letter-spacing: 0.02em;
+
+            padding: 24px 0 14px;
+
+        }
+
+
+
+        .work-item {
+
+            margin-bottom: 0;
+
+            padding-bottom: 32px;
+
+        }
+
+
+
+        .work-item h3 {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.2px;
+
+            padding: 14px 0 8px;
+
+            text-transform: uppercase;
+
+        }
+
+        .work-item h3 a {
+
+            text-decoration: none;
+
+            color: inherit;
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+            padding-bottom: 1px;
+
+            transition: border-color 0.2s ease;
+
+        }
+
+        .work-item h3 a::after {
+
+            content: " ↗";
+
+            font-size: 10px;
+
+            opacity: 0.4;
+
+            font-weight: 500;
+
+        }
+
+        .work-item h3 a:hover {
+
+            border-color: #000;
+
+        }
+
+        .work-item h3 a:hover::after {
+
+            opacity: 1;
+
+        }
+
+
+
+        .work-item img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+        }
+
+
+
+        /* Carrusel */
+
+        .carousel-container {
+
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .carousel-track {
+
+            display: flex;
+
+            transition: transform 0.6s ease;
+
+            align-items: center;
+
+        }
+
+
+
+        .carousel-item {
+
+            flex: 0 0 100%;
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+
+        .carousel-item img {
+
+            width: 100%;
+
+            height: auto;
+
+            object-fit: contain;
+
+            display: block;
+
+        }
+
+
+
+        .carousel-btn {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border: none;
+
+            cursor: pointer;
+
+            width: 30px;
+
+            height: 30px;
+
+            border-radius: 50%;
+
+            font-size: 14px;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+
+        .carousel-btn.prev { left: 8px; }
+
+        .carousel-btn.next { right: 8px; }
+
+
+
+        .carousel-btn:hover { background: rgba(255, 255, 255, 0.95); }
+
+
+
+        .video-embed {
+
+            position: relative;
+
+            padding-bottom: 56.25%;
+
+            height: 0;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .video-embed iframe {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+        }
+
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Apfel+Grotezk:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="content-canvas">
+
+        <div class="work-title"></div>
+
+        <!-- SKYPEROOM -->
+        <div class="work-item">
+
+            <h3><a href="skyperoom.html">Skyperoom</a></h3>
+
+            <div class="carousel-container" id="carouselContainer">
+
+                <div class="carousel-track" id="carouselTrack"></div>
+
+                <button class="carousel-btn prev" id="prevBtn">&#8249;</button>
+
+                <button class="carousel-btn next" id="nextBtn">&#8250;</button>
+
+            </div>
+
+        </div>
+
+        <!-- MEDIA KIT -->
+        <div class="work-item">
+
+            <h3><a href="media-kit.html">Media Kit TendenciasTV 2025</a></h3>
+
+            <img src="assets/media-kit/img/p1.webp" alt="Media Kit TendenciasTV 2025">
+
+        </div>
+
+        <!-- LUNNO VIDEO -->
+        <div class="work-item">
+
+            <h3>Lunno — Por Tu Lado (Visualizer)</h3>
+
+            <div class="video-embed">
+
+                <iframe src="https://www.youtube.com/embed/niUTmgbU-Gc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
+
+        </div>
+
+        <!-- SOME A4 -->
+        <div class="work-item">
+
+            <h3>Some A4</h3>
+
+            <div class="carousel-container" id="workCarouselContainer">
+
+                <div class="carousel-track" id="workCarouselTrack"></div>
+
+                <button class="carousel-btn prev" id="workPrevBtn">&#8249;</button>
+
+                <button class="carousel-btn next" id="workNextBtn">&#8250;</button>
+
+            </div>
+
+        </div>
+
+        <!-- EXODUS -->
+        <div class="work-item">
+
+            <h3>Exodus</h3>
+
+            <img src="assets/exodus_poster/EXODUS_POSTER.png" alt="Exodus">
+
+        </div>
+
+        <!-- BTE -->
+        <div class="work-item">
+
+            <h3>Bubble Typo Exploration</h3>
+
+            <video style="width: 100%; height: auto; display: block;" loop muted autoplay playsinline>
+
+                <source src="assets/poster_burbujas_motion/MOTION_POSTER_BURBUJAS_YSA.mp4" type="video/mp4">
+
+            </video>
+
+        </div>
+
+        <!-- YSA GLITCH -->
+        <div class="work-item">
+
+            <h3>Young Spanish Artist Glitch Logo</h3>
+
+            <video style="width: 100%; height: auto; display: block;" loop muted autoplay playsinline>
+
+                <source src="assets/ROTATORIO_3D_YSA/RETRO_GLITCH.mp4" type="video/mp4">
+
+            </video>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function initCarousel(config) {
+
+            const track = document.getElementById(config.trackId);
+
+            const container = document.getElementById(config.containerId);
+
+            const prevBtn = document.getElementById(config.prevId);
+
+            const nextBtn = document.getElementById(config.nextId);
+
+            if (!track || !container) return;
+
+            let currentIndex = 0;
+
+            let isHovered = false;
+
+            const images = config.imageArray;
+
+            const slideCount = images.length;
+
+            const allImages = [...images, ...images];
+
+            allImages.forEach((img) => {
+
+                const item = document.createElement('div');
+
+                item.className = 'carousel-item';
+
+                item.innerHTML = `<img src="${config.imagePath}${img}" alt="">`;
+
+                track.appendChild(item);
+
+            });
+
+            function goTo(index) {
+
+                currentIndex = index;
+
+                track.style.transition = 'transform 0.6s ease';
+
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                if (currentIndex >= slideCount) {
+
+                    setTimeout(() => {
+
+                        track.style.transition = 'none';
+
+                        currentIndex = 0;
+
+                        track.style.transform = 'translateX(0)';
+
+                    }, 620);
+
+                }
+
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex === 0 ? slideCount - 1 : currentIndex - 1));
+
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+            setInterval(() => { if (!isHovered) goTo(currentIndex + 1); }, 1500);
+
+            container.addEventListener('mouseenter', () => { isHovered = true; });
+
+            container.addEventListener('mouseleave', () => { isHovered = false; });
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            initCarousel({
+
+                containerId: 'carouselContainer',
+
+                trackId: 'carouselTrack',
+
+                prevId: 'prevBtn',
+
+                nextId: 'nextBtn',
+
+                imagePath: 'assets/CARRUSELSKYPEROOM/',
+
+                imageArray: ['1.png', 'A.png', '2.png', 'B.png', '3.png', 'C.png', '4.png', 'D.png', '5.png', 'E.png']
+
+            });
+
+            initCarousel({
+
+                containerId: 'workCarouselContainer',
+
+                trackId: 'workCarouselTrack',
+
+                prevId: 'workPrevBtn',
+
+                nextId: 'workNextBtn',
+
+                imagePath: 'assets/CARTELES_WORK/',
+
+                imageArray: ['3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png', '13.png']
+
+            });
+
+        });
+
+    </script>
+
+    <a class="close-btn" href="PAGINA_WEB.html">Close</a>
+
+</body>
+
+</html>

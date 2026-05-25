@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SALVADORRUIZ</title>
+
+    <style>
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.light.otf") format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.medium-legacy.otf") format("opentype");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.bold-legacy.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Lilex";
+            src: url("fonts/Lilex-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --neon-green: #d4ff00;
+            --text-dark: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--neon-green);
+            color: var(--text-dark);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Video background */
+        .video-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-bg__media {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .video-bg__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(212, 255, 0, 0.08);
+            pointer-events: none;
+        }
+
+        /* Card */
+        .home-card {
+            background: white;
+            padding: 20px 20px 18px;
+            width: min(400px, calc(100vw - 32px));
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.14);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Location tag */
+        .card-meta {
+            font-family: "Lilex", monospace;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 14px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .title-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        /* Nav */
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            border-top: 1px solid #e8e8e8;
+            padding-top: 14px;
+        }
+
+        nav a {
+            font-family: "HK Grotesk", Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0066ff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="video-bg" aria-hidden="true">
+        <video class="video-bg__media" preload="metadata" muted playsinline autoplay loop>
+            <source src="assets/FONDO_WEB_CONTACT/Flores_Fondo_Contact.webm" type="video/webm">
+            <source src="assets/FONDO_WEB_CONTACT/FLORES_FONDO_CONTACT.mp4" type="video/mp4">
+        </video>
+        <div class="video-bg__overlay"></div>
+    </div>
+
+    <div class="home-card" id="home">
+
+        <div class="card-meta">
+            <span>@youngspanishartist</span>
+            <span>Granada, Spain</span>
+        </div>
+
+        <img src="assets/NOMBRE_PRINCIPAL_WEB/NOMBRE_INTRO.png" alt="Salvador Ruiz" class="title-image">
+
+        <nav>
+            <a href="work.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="ysa.html">YSA</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+
+</body>
+
+</html>

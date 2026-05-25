@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALVADORRUIZ — Exodus</title>
+
+    <style>
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.light.otf") format("opentype");
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.medium-legacy.otf") format("opentype");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "HK Grotesk";
+            src: url("fonts/hk-grotesk.bold-legacy.otf") format("opentype");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --neon-green: #d4ff00;
+            --text-dark: #000000;
+            --main-font: "HK Grotesk", Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--main-font);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--neon-green);
+            color: var(--text-dark);
+            padding: 40px 20px;
+        }
+
+        .content-canvas {
+            background: white;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+
+        .page-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .page-logo {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            padding-top: 18px;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        .project-eyebrow {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            margin-bottom: 24px;
+        }
+
+        .project-description {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.65;
+            margin-bottom: 48px;
+            max-width: 640px;
+            color: #333;
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.25s ease;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.92;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.92);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            font-family: "HK Grotesk", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .content-canvas { padding: 28px 20px; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="content-canvas">
+
+        <div class="page-header">
+            <img class="page-logo" src="assets/NOMBRE_PRINCIPAL_WEB/NOMBRE_INTRO.png" alt="SALVADORRUIZ">
+            <div class="nav-links">
+                <a href="PAGINA_WEB.html">Home</a>
+                <a href="work.html">Work</a>
+                <a href="about.html">About</a>
+                <a href="ysa.html">YSA</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <p class="project-eyebrow">YSA — Editorial</p>
+
+        <div class="project-title">Exodus</div>
+
+        <div class="project-description">
+            Proyecto editorial que explora la identidad visual a través de una paleta rojo, blanco y negro. Ilustración, tipografía y composición en diferentes formatos de impresión.
+        </div>
+
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="assets/exodus_poster/EXODUS_POSTER.png" alt="Exodus Poster">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/exodus_poster/EXODUS_MOCK_UP_2.png" alt="Exodus Mockup 2">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/exodus_poster/MOCKUP_1.png" alt="Exodus Mockup 1">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="imageModal" class="modal">
+        <button class="modal-close" id="closeModal">Close</button>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+
+        document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
+    </script>
+
+</body>
+
+</html>

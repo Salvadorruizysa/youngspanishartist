@@ -1,0 +1,39 @@
+/* Estilos para el fondo de vídeo fullscreen y la capa overlay */
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-bg__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+}
+
+.video-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(204, 255, 0, 0.14);
+    pointer-events: none;
+}

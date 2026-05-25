@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\Salvador Ruiz YSA\\\\Desktop\\\\PAGINA WEB OFICIAL\\\\assets\" -Recurse | Where-Object { $_.Extension -eq \".pdf\" } | Select-Object FullName)"
+    ]
+  }
+}
